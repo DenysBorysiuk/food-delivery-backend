@@ -1,10 +1,10 @@
 const ctrlWrapper = require("../helpers/ctrlWrapper");
-const { Food } = require("../models/food");
+const { Dish } = require("../models/dish");
 
 const getAll = async (req, res) => {
-  const allFoods = await Food.find();
+  const allDishes = await Dish.find();
 
-  return res.json(allFoods);
+  return res.json(allDishes);
 };
 
 module.exports = {
