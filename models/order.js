@@ -51,6 +51,7 @@ const addSchema = Joi.object({
   phone: Joi.string().min(6).required(),
   address: Joi.string().min(3).required(),
   order: Joi.number().required(),
+  totalAmount: Joi.number().required(),
   items: Joi.array().items(
     Joi.object({
       id: Joi.string().required(),
