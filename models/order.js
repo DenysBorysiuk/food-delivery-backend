@@ -47,7 +47,7 @@ const orderSchema = new Schema(
 
 const addSchema = Joi.object({
   name: Joi.string().min(3).required(),
-  email: Joi.string().email().required(),
+  email: Joi.string().required(),
   phone: Joi.string().min(6).required(),
   address: Joi.string().min(3).required(),
   order: Joi.number().required(),
