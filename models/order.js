@@ -13,10 +13,31 @@ const orderSchema = new Schema(
     phone: {
       type: String,
     },
-    favorite: {
-      type: Boolean,
-      default: false,
+    address: {
+      type: String,
     },
+    order: {
+      type: Number,
+    },
+    totalAmount: {
+      type: Number,
+    },
+    items: [
+      {
+        name: {
+          type: String,
+        },
+        price: {
+          type: String,
+        },
+        amount: {
+          type: Number,
+        },
+        img: {
+          type: String,
+        },
+      },
+    ],
   },
   { versionKey: false, timestamps: true }
 );
@@ -25,6 +46,16 @@ const addSchema = Joi.object({
   name: Joi.string().min(3).required(),
   email: Joi.string().email().required(),
   phone: Joi.string().min(6).required(),
+  address: Joi.string().min(3).required(),
+  order: Joi.number().required(),
+  items: Joi.array().items(
+    Joi.object({
+      name: Joi.string().required(),
+      price: Joi.string().required(),
+      quantity: Joi.number().required(),
+      img: Joi.string().required(),
+    })
+  ),
 });
 
 const Order = model("order", orderSchema);
